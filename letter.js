@@ -1,13 +1,14 @@
 let [node, file, ...userguess] = process.argv
-let correct_letter = 'a'
+let correct_letter = ''
+
 var f_letter = function Letter(userguess) {
     this.letter = correct_letter
     console.log(this.letter)
-    this.userguess = userguess
-    console.log(JSON.stringify(this.userguess))
+    this.userguess = userguess[0]
+    console.log(this.userguess)
     this.correct_guess = false
     this.f_validate = function f_validate(userguess) {
-        if (JSON.stringify(this.userguess) === this.letter) {
+        if (this.userguess === this.letter) {
             this.correct_guess = true
             console.log(this.correct_guess)
             console.log(this.letter)
@@ -19,7 +20,9 @@ var f_letter = function Letter(userguess) {
     }
 }
 
+var letterExp = new f_letter(userguess)
+
 f_letter(userguess)
 f_validate(userguess)
 
-module.exports = f_letter;
+module.exports =  letterExp;

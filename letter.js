@@ -1,28 +1,25 @@
 let [node, file, ...userguess] = process.argv
-let correct_letter = ''
-
-var f_letter = function Letter(userguess) {
-    this.letter = correct_letter
-    console.log(this.letter)
+var letter
+var f_letter = function Letter(userguess, letter) {
+    this.letter = letter
     this.userguess = userguess[0]
-    console.log(this.userguess)
     this.correct_guess = false
-    this.f_validate = function f_validate(userguess) {
+    this.f_validate = function f_validate(userguess, letter) {
         if (this.userguess === this.letter) {
             this.correct_guess = true
-            console.log(this.correct_guess)
-            console.log(this.letter)
-            return correct_letter 
+            console.log('woo!')
+            return this.letter
+            
         } else {
-            console.log("_")
+            console.log('else')
             return "_"
+            
         }
     }
 }
 
-var letterExp = new f_letter(userguess)
+var letterExp = new f_letter(userguess, letter)
 
-f_letter(userguess)
-f_validate(userguess)
+letterExp.f_validate(userguess, letter)
 
 module.exports =  letterExp;

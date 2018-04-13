@@ -12,7 +12,8 @@ var f_word = function Word(array) {
         var selectedword = array[Math.floor(Math.random() * 7)]
         console.log(selectedword)
         this.blanks_array = this.blanks_array.push(f_letter.f_validate(selectedword))
-        console.log(this.blanks_array)
+        console.log(f_letter.f_validate(selectedword))
+        console.log(Object.values(this.blanks_array))
     }
 
     // A function that takes a character as an argument and calls the guess function on each 
